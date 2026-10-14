@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yanapat Kumpawong (Focus) - Academic Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Prompt & Mitr for Cute Thai Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@300;400;500;600&family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastelPink: '#FFD1DC',
+                        softPink: '#FFB6C1',
+                        hotPink: '#FF69B4',
+                        pastelPurple: '#E6E6FA',
+                        softPurple: '#D8BFD8',
+                        deepPurple: '#9370DB',
+                        creamWhite: '#FFF9FB',
+                    },
+                    fontFamily: {
+                        prompt: ['Prompt', 'sans-serif'],
+                        mitr: ['Mitr', 'sans-serif'],
+                    },
+                    animation: {
+                        bounceSlow: 'bounce 3s infinite',
+                        pulseGlow: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        float: 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background-color: #FFF9FB;
+            color: #4A4A4A;
+        }
+        h1, h2, h3, .font-mitr {
+            font-family: 'Mitr', sans-serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #FFF9FB;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #FFB6C1;
+            border-radius: 20px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF69B4;
+        }
+    </style>
+</head>
+<body class="bg-creamWhite text-gray-700 min-h-screen flex flex-col justify-between selection:bg-pastelPink selection:text-deepPurple relative overflow-x-hidden">
+
+    <!-- Floating Background Decor Elements -->
+    <div class="fixed top-10 left-5 text-pastelPink opacity-40 text-4xl animate-float pointer-events-none z-0"><i class="fa-solid fa-heart"></i></div>
+    <div class="fixed top-1/3 right-8 text-softPurple opacity-50 text-3xl animate-bounceSlow pointer-events-none z-0"><i class="fa-solid fa-sparkles"></i> ✨</div>
+    <div class="fixed bottom-20 left-10 text-softPink opacity-40 text-5xl animate-float pointer-events-none z-0" style="animation-delay: 2s;"><i class="fa-solid fa-cloud"></i></div>
+    <div class="fixed bottom-1/3 right-12 text-pastelPurple opacity-60 text-4xl animate-pulse pointer-events-none z-0"><i class="fa-solid fa-star"></i></div>
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/75 border-b border-pink-100 shadow-sm">
+        <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#home" class="flex items-center gap-2 group">
+                <span class="w-9 h-9 rounded-full bg-gradient-to-r from-pink-300 to-purple-300 flex items-center justify-center text-white font-bold text-lg shadow-md group-hover:rotate-12 transition-transform">
+                    ✨
+                </span>
+                <span class="font-mitr font-semibold text-xl bg-gradient-to-r from-pink-500 to-deepPurple bg-clip-text text-transparent">
+                    Focus.Portfolio
+                </span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <a href="#home" class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-pink-500 hover:bg-pink-50 transition-all">หน้าแรก</a>
+                <a href="#about" class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-pink-500 hover:bg-pink-50 transition-all">เกี่ยวกับฉัน</a>
+                <a href="#education" class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-pink-500 hover:bg-pink-50 transition-all">ประวัติการศึกษา</a>
+                <a href="#skills" class="px-4 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-pink-500 hover:bg-pink-50 transition-all">ทักษะ & ความสามารถ</a>
+                <a href="#contact" class="ml-2 px-5 py-2 rounded-full text-sm font-medium text-white bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-500 hover:to-purple-500 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                    <i class="fa-solid fa-paper-plane mr-1"></i> ติดต่อฉัน
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-btn" class="p-2 rounded-lg text-pink-400 hover:bg-pink-50 focus:outline-none">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white/95 border-b border-pink-100 px-4 pt-2 pb-4 space-y-2 text-center">
+            <a href="#home" class="block px-3 py-2 rounded-xl text-base font-medium text-gray-600 hover:bg-pink-50 hover:text-pink-500">หน้าแรก</a>
+            <a href="#about" class="block px-3 py-2 rounded-xl text-base font-medium text-gray-600 hover:bg-pink-50 hover:text-pink-500">เกี่ยวกับฉัน</a>
+            <a href="#education" class="block px-3 py-2 rounded-xl text-base font-medium text-gray-600 hover:bg-pink-50 hover:text-pink-500">ประวัติการศึกษา</a>
+            <a href="#skills" class="block px-3 py-2 rounded-xl text-base font-medium text-gray-600 hover:bg-pink-50 hover:text-pink-500">ทักษะ & ความสามารถ</a>
+            <a href="#contact" class="block px-3 py-2 rounded-xl text-base font-medium text-white bg-gradient-to-r from-pink-400 to-purple-400">ติดต่อฉัน</a>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section -->
+        <section id="home" class="pt-12 pb-20 md:pt-20 md:pb-28 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                    
+                    <!-- Text Content -->
+                    <div class="flex-1 text-center md:text-left z-10">
+                        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-100/80 text-pink-600 text-sm font-medium mb-4 border border-pink-200 shadow-sm animate-bounce">
+                            <span>🎀</span> ยินดีต้อนรับสู่พอร์ตโฟลิโอของฉัน!
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-800 leading-tight">
+                            สวัสดีค่ะ, ฉันชื่อ <br>
+                            <span class="bg-gradient-to-r from-pink-500 via-purple-500 to-deepPurple bg-clip-text text-transparent font-mitr">
+                                "โฟกัส" ญาณภัทร
+                            </span> ✨
+                        </h1>
+                        <p class="mt-4 text-lg text-gray-600 max-w-xl font-light leading-relaxed">
+                            นิสิตสาธารณสุขชุมชน ชั้นปีที่ 1 คณะสาธารณสุขศาสตร์และสหเวชศาสตร์ <br class="hidden sm:inline">
+                            วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น 🌸
+                        </p>
+
+                        <!-- Quick Badges -->
+                        <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-2">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">💖 ร่าเริง ยิ้มง่าย</span>
+                            <span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-xs font-semibold">🎵 รักในเสียงเพลง</span>
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">🩺 Public Health Student</span>
+                        </div>
+
+                        <!-- CTA Buttons -->
+                        <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                            <a href="#about" class="px-8 py-3.5 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 text-white font-medium shadow-lg hover:shadow-pink-200/50 hover:scale-105 transition-all text-center">
+                                รู้จักฉันมากขึ้น <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                            <a href="#contact" class="px-8 py-3.5 rounded-full bg-white text-gray-700 font-medium border-2 border-pink-200 hover:border-pink-300 hover:bg-pink-50 transition-all text-center shadow-sm">
+                                ติดต่อช่องทางโซเชียล 💌
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Profile Image / Avatar Container -->
+                    <div class="flex-1 relative flex justify-center z-10">
+                        <div class="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96">
+                            <!-- Background Glowing Circle -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-pink-300 to-purple-300 rounded-full blur-2xl opacity-60 animate-pulse"></div>
+                            
+                            <!-- Main Frame -->
+                            <div class="relative w-full h-full rounded-full p-3 bg-white shadow-xl border-4 border-pink-200 flex items-center justify-center overflow-hidden">
+                                <!-- Profile Image from Resume / Cute Placeholder fallback -->
+                                <img src="https://placehold.co/400x400/ffd1dc/9370db?text=Focus+Yanapat" 
+                                     alt="Yanapat Kumpawong (Focus)" 
+                                     class="w-full h-full object-cover rounded-full hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/400x400/ffd1dc/9370db?text=Focus+Yanapat'">
+                            </div>
+
+                            <!-- Floating Badges around Avatar -->
+                            <div class="absolute -top-2 -right-2 bg-white px-3 py-2 rounded-2xl shadow-lg border border-pink-100 text-xs font-bold text-pink-500 animate-float">
+                                🎶 Singing & Music
+                            </div>
+                            <div class="absolute -bottom-2 -left-2 bg-white px-3 py-2 rounded-2xl shadow-lg border border-purple-100 text-xs font-bold text-purple-600 animate-float" style="animation-delay: 1.5s;">
+                                🩸 Blood Type: B
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-16 bg-white/60 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-pink-500 text-sm font-semibold tracking-wider uppercase">Personal Details</span>
+                    <h2 class="text-3xl font-bold text-gray-800 mt-1 font-mitr">เกี่ยวกับตัวฉัน (About Me) 🌸</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-pink-300 to-purple-300 mx-auto rounded-full mt-2"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    
+                    <!-- Bio & Mindset Card -->
+                    <div class="lg:col-span-7 bg-gradient-to-br from-pink-50/80 to-purple-50/80 rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center gap-3 mb-4">
+                                <span class="w-10 h-10 rounded-2xl bg-pink-200 text-pink-600 flex items-center justify-center text-xl shadow-sm">
+                                    <i class="fa-solid fa-smile-beam"></i>
+                                </span>
+                                <h3 class="text-xl font-bold text-gray-800 font-mitr">ตัวตนและทัศนคติของโฟกัส</h3>
+                            </div>
+                            <p class="text-gray-600 leading-relaxed font-light text-base sm:text-lg">
+                                "ฉันเป็นคนร่าเริง ยิ้มง่าย และชอบเสียงเพลงเป็นชีวิตจิตใจ เวลาว่างชอบร้องเพลง ฟังเพลง และหาความสุขจากสิ่งเล็ก ๆ รอบตัว"
+                            </p>
+                            <p class="mt-4 text-gray-600 leading-relaxed font-light text-base sm:text-lg">
+                                "เป็นคนที่ชอบใส่ใจความรู้สึกของคนอื่น ชอบช่วยเหลือและสร้างรอยยิ้มให้กับคนรอบข้าง ถึงบางครั้งจะเป็นคนคิดมากและขี้กังวลไปบ้าง แต่ก็เป็นคนที่พร้อมเรียนรู้และพัฒนาตัวเองอยู่เสมอ"
+                            </p>
+                        </div>
+
+                        <!-- Highlight Quote Box -->
+                        <div class="mt-6 p-4 rounded-2xl bg-white/80 border border-pink-200/60 shadow-xs">
+                            <p class="text-pink-600 italic font-medium text-sm text-center">
+                                ✨ "ฉันเชื่อว่าการได้เป็นตัวเองในแบบที่มีความสุข และการได้พบเจอผู้คนดี ๆ คือหนึ่งในสิ่งที่ทำให้ชีวิตน่ารักขึ้นในทุก ๆ วัน" ✨
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information Grid -->
+                    <div class="lg:col-span-5 bg-white rounded-3xl p-6 sm:p-8 border border-pink-100 shadow-sm flex flex-col justify-between">
+                        <h3 class="text-xl font-bold text-gray-800 font-mitr mb-4 flex items-center gap-2">
+                            <i class="fa-solid fa-address-card text-purple-400"></i> ข้อมูลส่วนตัว
+                        </h3>
+
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-pink-50/50">
+                                <span class="text-xs text-gray-500 font-medium">ชื่อ-นามสกุล</span>
+                                <span class="text-sm font-semibold text-gray-700">ญาณภัทร กุมภวงศ์</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-purple-50/50">
+                                <span class="text-xs text-gray-500 font-medium">ชื่อเล่น</span>
+                                <span class="text-sm font-semibold text-purple-600">โฟกัส (Focus)</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-pink-50/50">
+                                <span class="text-xs text-gray-500 font-medium">วัน เกิด</span>
+                                <span class="text-sm font-semibold text-gray-700">12 พฤษภาคม 2551</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-purple-50/50">
+                                <span class="text-xs text-gray-500 font-medium">อายุ / หมู่เลือด</span>
+                                <span class="text-sm font-semibold text-gray-700">18 ปี / กรุ๊ป B</span>
+                            </div>
+                            <div class="flex justify-between items-center p-2.5 rounded-xl bg-pink-50/50">
+                                <span class="text-xs text-gray-500 font-medium">สัญชาติ / เชื้อชาติ</span>
+                                <span class="text-sm font-semibold text-gray-700">ไทย / ไทย</span>
+                            </div>
+                        </div>
+
+                        <!-- Family Info -->
+                        <div class="mt-4 pt-4 border-t border-gray-100">
+                            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">ข้อมูลครอบครัว</h4>
+                            <div class="text-xs text-gray-600 space-y-1">
+                                <p>👨‍👩‍👧 <b>บิดา:</b> นายฐิติพงศ์ กุมภวงศ์</p>
+                                <p>👩‍👧 <b>มารดา:</b> นางกุลพิชญ์ ภูชะ</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-16 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-purple-500 text-sm font-semibold tracking-wider uppercase">Academic Journey</span>
+                    <h2 class="text-3xl font-bold text-gray-800 mt-1 font-mitr">ประวัติการศึกษา (Education) 🎓</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-purple-300 to-pink-300 mx-auto rounded-full mt-2"></div>
+                </div>
+
+                <div class="max-w-3xl mx-auto">
+                    <!-- Timeline Card -->
+                    <div class="relative border-l-4 border-pink-200 ml-4 md:ml-32 pl-6 md:pl-8 space-y-8">
+                        
+                        <!-- Timeline Item 1 -->
+                        <div class="relative group">
+                            <!-- Bullet Icon -->
+                            <div class="absolute -left-[35px] md:-left-[43px] top-0 w-8 h-8 rounded-full bg-gradient-to-r from-pink-400 to-purple-400 text-white flex items-center justify-center text-sm font-bold shadow-md ring-4 ring-white">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+
+                            <!-- Year badge on left for desktop -->
+                            <div class="hidden md:block absolute -left-[180px] top-1 text-right w-28">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-bold">ปัจจุบัน</span>
+                            </div>
+
+                            <div class="bg-white p-6 rounded-3xl border border-pink-100 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1">
+                                <span class="md:hidden inline-block px-3 py-0.5 bg-purple-100 text-purple-700 rounded-full text-xs font-bold mb-2">ปัจจุบัน</span>
+                                <h3 class="text-xl font-bold text-gray-800 font-mitr">ระดับปริญญาตรี (ชั้นปีที่ 1)</h3>
+                                <p class="text-pink-500 font-medium text-sm mt-1">สาขาวิชาสาธารณสุขชุมชน</p>
+                                <p class="text-purple-600 text-sm font-medium">คณะสาธารณสุขศาสตร์และสหเวชศาสตร์</p>
+                                <p class="text-gray-500 text-sm mt-2 flex items-center gap-1">
+                                    <i class="fa-solid fa-location-dot text-pink-400"></i> วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น
+                                </p>
+                                <div class="mt-4 pt-3 border-t border-pink-50 text-xs text-gray-500">
+                                    มุ่งมั่นเรียนรู้ด้านการสาธารณสุข การดูแลสุขภาพชุมชน และส่งเสริมคุณภาพชีวิตที่ดีให้แก่ผู้คน
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Skills & Talents Section -->
+        <section id="skills" class="py-16 bg-white/60 relative">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-pink-500 text-sm font-semibold tracking-wider uppercase">Abilities & Hobbies</span>
+                    <h2 class="text-3xl font-bold text-gray-800 mt-1 font-mitr">ทักษะและความสามารถ (Skills) 🌟</h2>
+                    <div class="w-16 h-1 bg-gradient-to-r from-pink-300 to-purple-300 mx-auto rounded-full mt-2"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Skill Card 1 -->
+                    <div class="bg-white p-6 rounded-3xl border border-pink-100 shadow-sm hover:shadow-md transition-all text-center group hover:-translate-y-1">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                            🎤
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 font-mitr">การร้องเพลง (Singing)</h3>
+                        <p class="text-gray-500 text-sm mt-2 font-light">
+                            หลงรักการร้องเพลงเป็นชีวิตจิตใจ ถ่ายทอดอารมณ์ความรู้สึกผ่านบทเพลงเพื่อสร้างความสุขให้ตนเองและผู้อื่น
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 2 -->
+                    <div class="bg-white p-6 rounded-3xl border border-purple-100 shadow-sm hover:shadow-md transition-all text-center group hover:-translate-y-1">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-purple-100 text-purple-500 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:-rotate-6 transition-all">
+                            🎸
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 font-mitr">เล่นเครื่องดนตรี (Music)</h3>
+                        <p class="text-gray-500 text-sm mt-2 font-light">
+                            เพลิดเพลินกับการเล่นเครื่องดนตรีในเวลาว่าง เป็นงานอดิเรกที่ช่วยผ่อนคลายและสร้างพลังบวก
+                        </p>
+                    </div>
+
+                    <!-- Skill Card 3 -->
+                    <div class="bg-white p-6 rounded-3xl border border-pink-100 shadow-sm hover:shadow-md transition-all text-center group hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-yellow-100 text-yellow-600 flex items-center justify-center text-3xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                            🤝
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-800 font-mitr">มนุษยสัมพันธ์ & การดูแลผู้คน</h3>
+                        <p class="text-gray-500 text-sm mt-2 font-light">
+                            ใส่ใจความรู้สึกของคนอื่น มีจิตใจบริการ ชอบช่วยเหลือและสร้างรอยยิ้มให้คนรอบข้าง เหมาะกับงานสาธารณสุข
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                
+                <div class="bg-gradient-to-br from-pink-100 via-purple-100 to-pink-50 p-8 sm:p-12 rounded-3xl border border-pink-200 shadow-lg relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-32 h-32 bg-pink-300 rounded-full blur-2xl opacity-50"></div>
+                    <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-purple-300 rounded-full blur-2xl opacity-50"></div>
+
+                    <span class="text-pink-600 font-semibold text-sm tracking-wider uppercase">Get In Touch</span>
+                    <h2 class="text-3xl font-bold text-gray-800 mt-2 font-mitr">ช่องทางการติดต่อ (Contact) 📬</h2>
+                    <p class="text-gray-600 text-sm mt-2 max-w-md mx-auto font-light">
+                        สามารถติดตามหรือทักทายพูดคุยกับโฟกัสได้ผ่านช่องทางโซเชียลมีเดียด้านล่างนี้นะคะ!
+                    </p>
+
+                    <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                        <!-- Facebook Button -->
+                        <a href="https://facebook.com" target="_blank" class="flex items-center justify-center gap-3 px-6 py-3.5 bg-white rounded-2xl text-blue-600 font-semibold shadow-md hover:shadow-lg hover:bg-blue-50 transition-all transform hover:-translate-y-0.5 border border-blue-100">
+                            <i class="fa-brands fa-facebook-f text-xl"></i>
+                            <span>Focus Kumpawong</span>
+                        </a>
+
+                        <!-- Instagram Button -->
+                        <a href="https://instagram.com" target="_blank" class="flex items-center justify-center gap-3 px-6 py-3.5 bg-white rounded-2xl text-pink-600 font-semibold shadow-md hover:shadow-lg hover:bg-pink-50 transition-all transform hover:-translate-y-0.5 border border-pink-100">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                            <span>xfocus._q</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-pink-100 py-6 text-center text-xs text-gray-400">
+        <div class="max-w-6xl mx-auto px-4">
+            <p>© 2026 Academic Portfolio - Yanapat Kumpawong (Focus). All rights reserved.</p>
+            <p class="mt-1 text-pink-400 font-light">Designed with 💖 & Cute Pastel Style</p>
+        </div>
+    </footer>
+
+    <!-- Interactive Mobile Menu Toggle Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when link clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
